@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <title>Rock, Paper or Scissor</title>
+</head>
+<body>
+    <div class="title" id="title">
+        <h1>Rock, Paper or Scissor</h1>
+    </div>
+
+    <div class="Buttons" id="Buttons">
+        <input type="button" onclick="check('roc')" value="Rock">
+        <input type="button" onclick="check('pap')" value="Paper">
+        <input type="button" onclick="check('sci')" value="Scissor">
+        <div>
+            <img src="" alt="" id="photo1">
+            <img src="" alt="" id="explotion">
+            <img src="" alt="" id="photo2">
+        </div>
+        <h3 class="counter" id="score">0 - 0</h3>
+    </div>
+    <script>
+        let scorePlayer = 0
+        let scoreComputer = 0
+        var snd2 = new Audio("miusic.mp3");
+        function check(var1){
+            let computer = Math.floor((Math.random()*3) + 1);
+
+            if(var1 === "roc"){
+                document.getElementById("photo1").src = "rock.png";
+                document.getElementById("photo1").alt = "Rock";
+                document.getElementById("photo1").height = "100";
+                document.getElementById("photo1").width = "100";
+            }
+            if(var1 === "pap"){
+                document.getElementById("photo1").src = "paper.png";
+                document.getElementById("photo1").alt = "Paper";
+                document.getElementById("photo1").height = "100";
+                document.getElementById("photo1").width = "100";
+            }
+            if(var1 === "sci"){
+                document.getElementById("photo1").src = "scissor.png";
+                document.getElementById("photo1").alt = "Scissor";
+                document.getElementById("photo1").height = "100";
+                document.getElementById("photo1").width = "100";
+            }
+
+            // checking which the computer chouse.
+            if(computer === 1) {
+                computer = "roc"
+                document.getElementById("photo2").src = "rock.png";
+                document.getElementById("photo2").alt = "Rock";
+                document.getElementById("photo2").height = "100";
+                document.getElementById("photo2").width = "100";
+            }
+            if(computer === 2) {
+                computer = "pap"
+                document.getElementById("photo2").src = "paper.png";
+                document.getElementById("photo2").alt = "Paper";
+                document.getElementById("photo2").height = "100";
+                document.getElementById("photo2").width = "100";
+            }
+            if(computer === 3) {
+                computer = "sci"
+                document.getElementById("photo2").src = "scissor.png";
+                document.getElementById("photo2").alt = "Scissor";
+                document.getElementById("photo2").height = "100";
+                document.getElementById("photo2").width = "100";
+            }
+
+            document.getElementById("explotion").src = "explotion.png";
+            document.getElementById("explotion").alt = "Explotion";
+            document.getElementById("explotion").height = "100";
+            document.getElementById("explotion").width = "100";
+
+            var snd1 = new Audio("toc.mp3");
+            snd1.play(); 
+
+            // check if you won or lost or draw
+
+            if(computer === "roc" && var1 == "pap"){
+                scorePlayer += 1
+            }
+            if(computer === "pap" && var1 == "roc"){
+                scoreComputer += 1
+            }
+            if(computer === "pap" && var1 == "sci"){
+                scorePlayer += 1
+            }
+            if(computer === "sci" && var1 == "pap"){
+                scoreComputer += 1
+            }
+            if(computer === "sci" && var1 == "roc"){
+                scorePlayer += 1
+            }
+            if(computer === "roc" && var1 == "sci"){
+                scoreComputer += 1
+            }
+
+            // puting new score
+            document.getElementById("score").innerHTML = scorePlayer + " - " + scoreComputer
+        }
+
+        while(true){
+            snd2.volume = 0.5
+            snd2.play
+        }
+    </script>
+</body>
+</html>
