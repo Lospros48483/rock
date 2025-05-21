@@ -28,7 +28,6 @@
     <script>
         let scorePlayer = 0
         let scoreComputer = 0
-        var snd2 = new Audio("miusic.mp3");
         function check(var1){
             let computer = Math.floor((Math.random()*3) + 1);
 
@@ -105,11 +104,6 @@
 
             // puting new score
             document.getElementById("score").innerHTML = scorePlayer + " - " + scoreComputer
-        }
-
-        while(true){
-            snd2.volume = 0.5
-            snd2.play
         }
     </script>
 </body>
